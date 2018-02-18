@@ -40,7 +40,7 @@ def maxpoint_decision(tokens):
         words = action.getWords();
         points = action.getPoints();
         for token in tokens:
-            if token in words:
+            if token.lower() in words:
                 #print "Match:" + token
                 sum_points += points[words.index(token)]
         sum_points /= sum(points)

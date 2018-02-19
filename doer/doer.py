@@ -15,7 +15,7 @@ def load_actions():
         #print file,os.path.basename(file)
         name = os.path.splitext(os.path.basename(file))[0]
         #print "Name: " + name
-        if name == "action" or name.startswith("__"): continue
+        if name in ["action" , "open" ,"search"] or name.startswith("__"): continue
         module = importlib.import_module("actions." + name)
         #print module
         my_class = getattr(module, string.capwords(name))
@@ -26,17 +26,22 @@ def load_actions():
 
 #Analuei tin protasi kai ektelei to katallilo action
 def analyze(seq):
-    action = maxpoint_decision(seq.split(" "))
+    action,useful_tokens = maxpoint_decision(seq.split(" "))
+
     if action != None:
-        action.doIt()
+        action.doIt(useful_tokens)
+
+
 
 #Epilegei to action me ta perissotera points
 def maxpoint_decision(tokens):
     max_point = -1
     max_action = None
+    max_useful_tokens = []
     for action in action_list:
         print "Action:" + str(action)
         sum_points = 0.0
+        useful_tokens = []
         words = action.getWords();
         points = action.getPoints();
         print points
@@ -45,6 +50,8 @@ def maxpoint_decision(tokens):
                 print "Match:" + token
                 sum_points += points[words.index(token.lower())]
                 print sum_points
+            else:
+                useful_tokens.append(token.lower())
         print sum(points)
         sum_points /= sum(points)
         print "Success: " + str(sum_points)
@@ -52,12 +59,15 @@ def maxpoint_decision(tokens):
             print "Is max now: " + str(action)
             max_point = sum_points
             max_action = action
+            max_useful_tokens = useful_tokens[:]
+
 
     if max_point < 0.40:
         print "Rejected: " + str(max_point)
-        return None
+        return None,None
     print "Choosed: " + str(max_point)
-    return max_action
+    print max_useful_tokens
+    return max_action,max_useful_tokens
 
 load_actions()
 print("Action list: " + str(action_list))

@@ -4,7 +4,7 @@ setup (
        name='Doer',
        version='0.1',
        packages=find_packages(),
-       install_requires=[''],
+       install_requires=['speech_recognition'],
        author='tasosxak',
        author_email='tasosxakx@gmail.com',
        url='',

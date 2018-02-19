@@ -1,13 +1,12 @@
-import action
+import actions.action
 from abc import abstractmethod
 from subprocess import call
-from collections import OrderedDict
 import webbrowser
 
-class Search (action.Action):
+class Search (actions.action.Action):
 
     def __init__(self,site):
-        self.items = OrderedDict([("search" , 9), ("look" , 2), ("find" , 3)])
+        self.items = {"search": 9, "look": 2, "find" : 3}
         self.site = site
 
     def getWords(self):
@@ -18,9 +17,9 @@ class Search (action.Action):
 
     def doIt(self,tokens):
         link = self.site + "+".join(tokens)
-        print "Looking for ... " + link
+        print("Looking for ... " + link)
         webbrowser.open(link)
 
     def act(self, items):
         self.items.update(items)
-        print self.items.keys()
+        print(self.items.keys())

@@ -36,34 +36,34 @@ def maxpoint_decision(tokens):
     max_action = None
     max_useful_tokens = []
     for action in action_list:
-        print "Action:" + str(action)
+        print("Action:" + str(action))
         sum_points = 0.0
         useful_tokens = []
-        words = action.getWords();
-        points = action.getPoints();
-        print points
+        words = list(action.getWords());
+        points = list(action.getPoints());
+        print(points)
         for token in tokens:
             if token.lower() in words:
-                print "Match:" + token
+                print("Match:" + token)
                 sum_points += points[words.index(token.lower())]
-                print sum_points
+                print(sum_points)
             else:
                 useful_tokens.append(token.lower())
-        print sum(points)
+        print(sum(points))
         sum_points /= sum(points)
-        print "Success: " + str(sum_points)
+        print("Success: " + str(sum_points))
         if sum_points > max_point:
-            print "Is max now: " + str(action)
+            print("Is max now: " + str(action))
             max_point = sum_points
             max_action = action
             max_useful_tokens = useful_tokens[:]
 
 
     if max_point < 0.40:
-        print "Rejected: " + str(max_point)
+        print("Rejected: " + str(max_point))
         return None,None
-    print "Choosed: " + str(max_point)
-    print max_useful_tokens
+    print("Choosed: " + str(max_point))
+    print(max_useful_tokens)
     return max_action,max_useful_tokens
 
 load_actions()

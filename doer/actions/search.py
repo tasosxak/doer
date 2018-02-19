@@ -20,7 +20,7 @@ class Search (action.Action):
         link = self.site + "+".join(tokens)
         print "Looking for ... " + link
         webbrowser.open(link)
-        
+
     def act(self, items):
         self.items.update(items)
         print self.items.keys()

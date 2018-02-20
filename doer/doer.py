@@ -3,6 +3,7 @@ import inspect
 import glob,os
 import importlib
 import string
+import pyttsx3 as ptsx
 
 action_list = []
 
@@ -65,6 +66,13 @@ def maxpoint_decision(tokens):
     print("Choosed: " + str(max_point))
     print(max_useful_tokens)
     return max_action,max_useful_tokens
+
+def say(message,speed = 150):
+    engine.setProperty("rate", speed)
+    engine.say(message)
+    engine.runAndWait()
+
+engine = ptsx.init()
 
 load_actions()
 print("Action list: " + str(action_list))

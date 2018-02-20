@@ -13,7 +13,7 @@ def load_actions():
         #print file,os.path.basename(file)
         name = os.path.splitext(os.path.basename(file))[0]
         #print "Name: " + name
-        if name in ["action" , "open" ,"search"] or name.startswith("__"): continue
+        if name in ["action" ,"search"] or name.startswith("__"): continue
         module = importlib.import_module("actions." + name)
         #print module
         my_class = getattr(module, string.capwords(name))
@@ -50,6 +50,7 @@ def maxpoint_decision(tokens):
                 print(sum_points)
             else:
                 useful_tokens.append(token.lower())
+                
         print(sum(points))
         sum_points /= sum(points)
         print("Success: " + str(sum_points))

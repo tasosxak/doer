@@ -1,13 +1,12 @@
-
 import actions.action
 from abc import abstractmethod
-from subprocess import call
+from subprocess import Popen
 
 
-class Open (actions.action.Action):
+class Close (actions.action.Action):
 
     def __init__(self):
-        self.items = {"open" : 10, "program" : 3 , "app" : 1 , "application" : 1}
+        self.items = {"close" : 10, "program" : 3 , "app" : 1 , "application" : 1}
         self.programName = ""
 
 
@@ -18,9 +17,9 @@ class Open (actions.action.Action):
         return self.items.values()
 
     def doIt(self,tokens):
-        print("Opening " + tokens[0])
+        print("Closing " + tokens[0])
         try:
-            call([tokens[0]])
+            Popen(["pkill","-f",tokens[0]])
         except:
             print("The program " + tokens[0] + "doesn't exists :/")
 

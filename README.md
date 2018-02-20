@@ -14,9 +14,9 @@
 
 Το πρόγραμμα ήδη παρέχει δύο τέτοιες λειτουργίες:
 
-  > open firefox
+  - open firefox
      - Ανοίγει το πρόγραμμα firefox
-  > open notepad
+  - open notepad
      - Ανοίγει το πρόγραμμα gedit (linux)
 
 # Η λειτουργία "Search"
@@ -24,13 +24,13 @@
 Η λειτουργία αυτή επιλέγεται όταν ο χρήστης λέει `"search, look, find"` με μεγαλύτερη βαρύτητα στο ρήμα `"search"`.
 
 Το πρόγραμμα ήδη παρέχει μια τέτοια λειτουργία:
-  > search google [keywords,...]
+  - search google [keywords,...]
       - Αναζητά στο google για πληροφορίες σχετικά με αυτό που λέει ο χρήστης.
     
 # Η λειτουργία "Playmusic"
 Η λειτουργα αυτή επιλέγεται όταν ο χρήστης λέει `"play,music,youtube"` με μεγαλύτερη βαρύτητα στο ρήμα `"play"`.
 
-  > play music [music title]
+  - play music [music title]
   
   
   

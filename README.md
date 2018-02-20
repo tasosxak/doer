@@ -39,7 +39,6 @@
   - Hello 
     - Ακούγεται ένα ηχητικό με μήνυμα "Hello" ακολουθούμενο από το όνομα του χρήστη.
 
-  - play music [music title]
   
 # Changelog
 

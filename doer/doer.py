@@ -50,7 +50,7 @@ def maxpoint_decision(tokens):
                 print(sum_points)
             else:
                 useful_tokens.append(token.lower())
-                
+
         print(sum(points))
         sum_points /= sum(points)
         print("Success: " + str(sum_points))
@@ -68,8 +68,9 @@ def maxpoint_decision(tokens):
     print(max_useful_tokens)
     return max_action,max_useful_tokens
 
-def say(message,speed = 150):
+def say(message,speed = 150, lang = 'english'):
     engine.setProperty("rate", speed)
+    engine.setProperty('voice',lang)
     engine.say(message)
     engine.runAndWait()
 

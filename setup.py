@@ -9,5 +9,5 @@ setup (
        author_email='tasosxakx@gmail.com',
        url='',
        license='',
-       long_description='',
+       long_description='Just say it and I will do it',
        )

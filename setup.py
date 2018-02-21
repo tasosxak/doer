@@ -4,7 +4,7 @@ setup (
        name='Doer',
        version='0.1',
        packages=find_packages(),
-       install_requires=['speech_recognition','mps_youtube','pyttsx3'],
+       install_requires=['speech_recognition','mps_youtube','pyttsx3','googletrans'],
        author='tasosxak',
        author_email='tasosxakx@gmail.com',
        url='',

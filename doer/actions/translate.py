@@ -14,10 +14,11 @@ class Translate (actions.action.Action):
         return self.items.values()
 
     def doIt(self,tokens):
-        print("Translating " + tokens[0])
-        translated_sequence = self.translator.translate(" ".join(tokens), dest='greek')
-        print(translated_sequence.text)
-        say(translated_sequence.text,lang = "greek")
+        if len(tokens)>1:
+            print("Translating " + tokens[0])
+            translated_sequence = self.translator.translate(" ".join(tokens), dest='greek')
+            print(translated_sequence.text)
+            say(translated_sequence.text,lang = "greek")
     def act(self, items):
         self.items.update(items)
         print(self.items.keys())

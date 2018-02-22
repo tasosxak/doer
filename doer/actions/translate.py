@@ -14,7 +14,7 @@ class Translate (actions.action.Action):
         return self.items.values()
 
     def doIt(self,tokens):
-        if len(tokens)>1:
+        if len(tokens)>0:
             print("Translating " + tokens[0])
             translated_sequence = self.translator.translate(" ".join(tokens), dest='greek')
             print(translated_sequence.text)

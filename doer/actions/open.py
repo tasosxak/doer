@@ -22,7 +22,7 @@ class Open (actions.action.Action):
         try:
             call([tokens[0]])
         except:
-            print("The program " + tokens[0] + "doesn't exists :/")
+            print("The program " + tokens[0] + "doesn't exist :/")
 
     def act(self, items):
         self.items.update(items)
